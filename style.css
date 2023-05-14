@@ -1,0 +1,32 @@
+body{
+    margin: 0;
+    font-size: 16px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table{
+    background-color: blanchedalmond;
+    border-collapse: collapse;
+    font-size: 5rem;
+}
+
+td{
+    justify-content: center;
+    text-align: center;
+    height: 12rem;
+    width: 12rem;
+    border-bottom: solid 5px Black;
+    border-right: solid 5px Black;
+    cursor: pointer;
+}
+
+tr:last-child td{
+    border-bottom: none;
+}
+
+tr td:last-child{
+    border-right: none;
+}
