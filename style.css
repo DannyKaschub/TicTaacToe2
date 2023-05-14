@@ -5,6 +5,14 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+
+.score-container{
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 2rem;
 }
 
 table{

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +9,20 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
+
 <body>
+
+    <div class="score-container">
+        <div>
+            <span>Score</span>
+        </div>
+        <div>
+            <span>Player 1: </span><span id="score1">0</span>
+        </div>
+        <div>
+            <span>Player 2: </span><span id="score2">0</span>
+        </div>
+    </div>
     <table>
         <tr>
             <td onclick="check('field_1')" id="field_1">+</td>
@@ -26,5 +40,10 @@
             <td onclick="check('field_9')" id="field_9">+</td>
         </tr>
     </table>
+    <div>
+        <button onclick="next_round()">Next Round</button>
+        <button onclick="reset_game()">Reset Game</button>
+    </div>
 </body>
+
 </html>
