@@ -6,6 +6,8 @@ body{
     justify-content: center;
     align-items: center;
     position: relative;
+    flex-direction: column;
+    gap: 5rem;
 }
 
 .score-container{
@@ -37,4 +39,11 @@ tr:last-child td{
 
 tr td:last-child{
     border-right: none;
+}
+
+button{
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #e76464;
+    font-size: 1rem;
 }

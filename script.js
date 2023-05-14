@@ -2,6 +2,8 @@ let player1 = "X";
 let player2 = "O";
 var activePlayer = player1;
 var fields = ["+","+","+","+","+","+","+","+","+"];
+var winsPlayer1 = 0;
+var winsPlayer2 = 0;
     
 
 function check(id) {
@@ -9,6 +11,7 @@ function check(id) {
     idSplit= id.split("_")
     number = idSplit[1];
     fields[number-1] = activePlayer;
+    console.log(fields)
     checkWinner();
 }
 
@@ -36,19 +39,38 @@ function checkWinner() {
         fields[0]!=='+' && fields[0]=== fields[4] && fields[4]=== fields[8] ||
         fields[2]!=='+' && fields[2]=== fields[4] && fields[4]=== fields[6]
         ){
-            setTimeout(500)
-            alert("Winner"+ activePlayer)
+            scoreUp();
+            setTimeout(function() {
+                alert("winner is " + activePlayer)
+            }, 1000);
         } else {
             switchPlayer();
     }
 }
 
 
-function reset_game() {
+function next_round() {
     for (let index = 1; index < 10; index++) {
         element = `field_${index}`;
         document.getElementById(element).innerHTML = "+";
         fields[index-1] = "+";
+    }
+}
+
+
+function reset_game() {
+    next_round();
+    document.getElementById('score1') = 0;
+    document.getElementById('score2') = 0;
+}
+
+function scoreUp() {
+    if (activePlayer === "X") {
+        winsPlayer1++;
+        document.getElementById('score1').innerHTML = winsPlayer1;
+    } else {
+        winsPlayer2++;
+        document.getElementById('score2').innerHTML = winsPlayer2;
     }
 }
 
