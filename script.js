@@ -2,7 +2,7 @@ let player1 = "X";
 let player2 = "O";
 var activePlayer = player1;
 
-var fields = ["X","X","X","+","+","+","+","+","+"]
+var fields = ["+","+","+","+","+","+","+","+","+"]
     
 
 function check(id) {
@@ -24,7 +24,9 @@ function switchPlayer() {
 }
 
 function checkWinner() {
-    if (fields[1]!=="+" && fields[1]=== fields[2] && fields[2] === fields[3]) {
-        console.log("wir haben einen gewinner")
+    if (
+        fields[0]!=='+' && fields[0]=== fields[1] && fields[1]=== fields[2]
+        ){
+        /* hier muss dann ne reaktion rein */
     }
 }
