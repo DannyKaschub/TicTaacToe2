@@ -7,15 +7,19 @@ var winsPlayer2 = 0;
     
 
 function check(id) {
-    document.getElementById(id).innerHTML = activePlayer;
-    idSplit= id.split("_")
-    number = idSplit[1];
-    fields[number-1] = activePlayer;
-    console.log(fields)
+    pushArray(id);
+    updateGameField();
     checkWinner();
 }
 
+//save gamefield in a array
+function pushArray(id) {
+    idSplit= id.split("_")
+    number = idSplit[1];
+    fields[number-1] = activePlayer;
+}
 
+// swich players
 function switchPlayer() {
     if (activePlayer == player1) {
         activePlayer = player2;
@@ -24,7 +28,7 @@ function switchPlayer() {
     }
 }
 
-
+// check the fields for 3 in a row. end game or next player
 function checkWinner() {
     if (
         /*Wagerecht */
@@ -48,22 +52,29 @@ function checkWinner() {
     }
 }
 
-
-function next_round() {
-    for (let index = 1; index < 10; index++) {
-        element = `field_${index}`;
-        document.getElementById(element).innerHTML = "+";
-        fields[index-1] = "+";
+function isDraw() {
+    for (let i = 0; i < fields.length; i++) {
+        const element = fields[i];
+        
     }
 }
 
-
-function reset_game() {
-    next_round();
-    document.getElementById('score1') = 0;
-    document.getElementById('score2') = 0;
+//clear the gamefield
+function next_round() {
+    for (let index = 1; index < 10; index++) {
+        fields[index-1] = "+";
+    }
+    updateGameField();
 }
 
+//reset gamefield and scores to zero
+function reset_game() {
+    next_round();
+    document.getElementById('score1').innerHTML = 0;
+    document.getElementById('score2').innerHTML = 0;
+}
+
+// set the score +1 for the winner
 function scoreUp() {
     if (activePlayer === "X") {
         winsPlayer1++;
@@ -74,38 +85,11 @@ function scoreUp() {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// render the array data to playfield
+function updateGameField() {
+    for (let i = 0; i < fields.length; i++) {
+        const element = fields[i];
+        field = "field_"+ (i+1);
+        document.getElementById(field).innerHTML = element;
+    }
+}
